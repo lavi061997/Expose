@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('../models/user');
+var User = require('../models/users');
+
 /*  GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -77,6 +78,7 @@ else {
 		password:password,
 		password2:password2
 	});
+
 }
 User.createUser(newUser,function(err,user){
 if(err) throw err;
